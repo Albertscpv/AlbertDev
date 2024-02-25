@@ -1,0 +1,176 @@
+*{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    background-image: url(assets/patternpad.svg);
+}
+.navbar{
+    display: flex;
+    flex-wrap: wrap;
+    color: #fffffe;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    animation: 1s blur-in;
+}
+
+.navbar a{
+    text-decoration: none;
+    color:inherit;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 20px;
+    transition: color 0.3s;
+    font-weight: bold;
+}
+
+.logo{
+    margin-right: 50px;
+}
+.logo img{
+    width: 20vh;
+}
+
+.list{
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 10px;
+}
+
+#toggler, label{
+    display: none;
+}
+
+.navbar a:hover{
+    background: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+    background-clip: text;
+    background-size: cover;
+    color: transparent;
+    -webkit-background-clip: text;
+}
+
+@media screen and (max-width :800px){
+    .menu{
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+    .list{
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;    
+    }
+    .navbar label{
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    #toggler:checked ~ .menu{
+        max-height: 100%;
+    }
+}
+.container {  
+    display: grid; 
+    grid-template-columns: 3fr 3fr 3fr;
+    grid-template-rows: 3fr 3fr 3fr;
+    gap: 10px 10px;
+    text-align: center;
+    justify-items: stretch;
+    align-items: stretch;
+    grid-template-areas:
+        "Header Header Header"
+        "list1 list2 list3"
+        "list4 list5 list6";
+    width: 100%;
+    height: 100%;    
+    animation: 1s blur-in;
+}
+
+.Header { 
+    grid-area: Header; 
+    background: rgba(39, 54, 73, 0.6);
+    backdrop-filter: blur(3px);
+    place-content: center;
+    height: 7rem;
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.Header span{
+    background: url(https://w.wallhaven.cc/full/jx/wallhaven-jxl31y.png);
+    background-clip: text;
+    color: transparent;
+    background-size: cover;
+    -webkit-background-clip: text;
+}
+
+.list1 {
+    grid-area: list1;
+    background-color: #7f5af0;
+    border: 1px solid black;
+ }
+
+.list2 {
+    grid-area: list2;
+    background-color: #a7a9be;
+    border: 1px solid black;
+}
+
+.list3 {
+    grid-area: list3;
+    background-color: #7f5af0;
+    border: 1px solid black;
+ }
+
+.list4 {
+    grid-area: list4;
+    background-color: #a7a9be;
+    border: 1px solid black;
+ }
+
+.list5 {
+    grid-area: list5;
+    background-color: #7f5af0;
+    border: 1px solid black;
+ }
+
+.list6 { 
+    grid-area: list6;
+        background-color: #a7a9be;
+        border: 1px solid black;
+ }
+
+
+.hr-social{
+    width: 25%;
+    margin: 10px auto;
+    border: 1px solid black;
+}
+
+
+@media screen and (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(7, 1fr);
+
+        grid-template-areas:
+            "Header"
+            "list1"
+            "list2"
+            "list3"
+            "list4"
+            "list5"
+            "list6";
+    }
+}  
+
+/*ANIMATION*/
+.blur-in{
+    animation:blur-in 0.4s linear both
+} 
+@keyframes blur-in{0%{filter:blur(12px);opacity:0}100%{filter:blur(0);opacity:1}}

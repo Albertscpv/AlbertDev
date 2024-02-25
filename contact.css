@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
+
+*{
+    list-style: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background-image: url(assets/patternpad.svg);
+}
+/* NAVBAR*/
+.navbar{
+    display: flex;
+    flex-wrap: wrap;
+    color: #fffffe;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+        animation: 1s blur-in;
+}
+
+.blur-in{animation:blur-in 0.4s linear both} @keyframes blur-in{0%{filter:blur(12px);opacity:0}100%{filter:blur(0);opacity:1}}
+
+.navbar a{
+    text-decoration: none;
+    color:inherit;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 20px;
+    transition: color 0.3s;
+    font-weight: bold;
+}
+
+.logo{
+    margin-right: 50px;
+}
+.logo img{
+    width: 20vh;
+}
+
+.list{
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 10px;
+}
+
+#toggler, label{
+    display: none;
+}
+
+.navbar a:hover{
+    background: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+    background-clip: text;
+    background-size: cover;
+    color: transparent;
+    -webkit-background-clip: text;
+
+}
+
+
+/* NAVBAR RESPONSIVE*/
+/* FIN NAVBAR*/
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 5px;
+    grid-auto-flow: row dense;
+    justify-content: space-between;
+    justify-items: stretch;
+    place-content: center;
+    grid-template-areas:
+        "form Header"
+        "form Header";
+    width: 100%;
+    height: 100%;
+}
+
+
+.header-container{
+    display: grid;
+    width: auto;
+    padding: 100px 0px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(3px);
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: 1s blur-in;
+}
+.header-form{
+    background: url(https://w.wallhaven.cc/full/o5/wallhaven-o5762l.png);
+    background-clip: text;
+    background-size: cover;
+    color: transparent;
+    -webkit-background-clip: text;
+    animation: 1s blur-in;
+}
+
+.form-container{
+    grid-area: form;
+}
+.container{
+    width: 75vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    height: 75vh;
+    padding: 40px;
+    margin: 0 auto;
+    background:padding-box,
+              linear-gradient(145deg, transparent 20%,#7f5af0, #40c9ff) border-box;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    padding: 32px 24px;
+    font-size: 14px;
+    font-family: inherit;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    background-size: 200% 100%;
+    animation: gradient 5s ease infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.Form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 10px 10px;
+}
+
+input, textarea{
+    resize: none;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    color:white;
+
+}
+input{
+    padding: 20px 5px ;
+}
+
+textarea{
+    padding: 5px 5px 100px 5px ;
+}
+
+.submit{
+    padding:20px; 
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid black; 
+    transition: .3s ease-in;
+}
+
+input::placeholder, textarea::placeholder{
+    color: white;
+}
+
+.submit:hover{
+    padding:20px; 
+    border-radius: 10px;
+    background-color: white ;
+    color: black;
+    border: 1px solid gray; 
+}
+
+@media screen and (max-width: 900px){
+    .menu{
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+    .list{
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;    
+    }
+    .navbar label{
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    #toggler:checked ~ .menu{
+        max-height: 100%;
+    }
+    
+    
+    .grid{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 0px;
+        grid-template-areas:  "header"
+                              "header"
+                              "form"
+                              "form";
+        }
+    .header-container{
+        padding: 30px 10px;
+        font-size: 30px;
+        text-align: center;
+    }
+    .container{
+        width:90%;
+        height: auto;
+    }
+}

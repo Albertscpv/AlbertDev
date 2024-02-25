@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+*{
+    list-style: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* NAVBAR*/
+html, body {
+    height: 100%;
+    margin: 0;
+    background-image: url(assets/patternpad.svg);
+}
+.navbar{
+    display: flex;
+    flex-wrap: wrap;
+    color: #fffffe;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    animation: 1s blur-in;
+}
+
+
+
+.blur-in{animation:blur-in 0.4s linear both} @keyframes blur-in{0%{filter:blur(12px);opacity:0}100%{filter:blur(0);opacity:1}}
+
+.navbar a{
+    text-decoration: none;
+    color:inherit;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 20px;
+    transition: color 0.3s;
+    font-weight: bold;
+}
+
+.logo{
+    margin-right: 50px;
+}
+.logo img{
+    width: 20vh;
+}
+
+.list{
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 10px;
+}
+
+#toggler, label{
+    display: none;
+}
+
+.navbar a:hover{
+    background: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+    background-clip: text;
+    background-size: cover;
+    color: transparent;
+    -webkit-background-clip: text;
+}
+
+@media screen and (max-width : 900px){
+    .menu{
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+    .list{
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;    
+    }
+    .navbar label{
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    #toggler:checked ~ .menu{
+        max-height: 100%;
+    }
+}
+
+/* NAVBAR RESPONSIVE*/
+/* FIN NAVBAR*/
+/* GRID DE MI INFO*/ /* about main*/
+.container {  
+    display: grid;
+    grid-template-columns: 1fr 0.9fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "item1  item1 item2"
+        "item1  item1 item2"
+        "item1  item1 item3";
+    width: auto;
+    height: 75vh;
+    margin: 20px;
+    color: white;
+}
+
+.item1 { 
+    grid-area: item1; 
+    padding: 30px;
+    background-color: rgba(127, 90, 240, 0.7);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    color: #121629;
+    border-radius: 10px;
+        animation: 1s blur-in;
+}
+
+.item2 { 
+    grid-area: item2;
+    padding: 30px; 
+    background: rgba(44, 182, 125, 0.7);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    text-align: center;
+    color: #121629;
+    font-size: 20px;
+    border-radius: 10px;
+        animation: 1s blur-in;
+}
+
+.item3 { 
+    grid-area: item3; 
+    padding: 30px;
+    background: rgba(18, 22, 41, 0.7);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    text-align: center;
+        animation: 1s blur-in;
+}
+/* ESCRITURA AUTOMATICA*/
+.typed{
+    font-size: 30px;
+    margin: 10px;
+}
+.txt{
+    width: auto;
+    position: relative;
+    text-align: center;
+}
+.txt p{
+    margin-top: 20px;
+}
+.txt img{
+    margin-top: 50px;
+    border-radius: 15px;
+    width: 40vh;
+    filter: drop-shadow(10px 7px 5px black);
+}
+
+
+.L1 li{
+    display: inline-block;
+    list-style-type: none;
+    margin: 20px 10px ;
+    font-size: 7dvh;
+}
+
+
+/* Social Main*/
+
+#link:hover{
+    color: rgb(61, 147, 228);
+}
+#Git:hover{
+    color: rgb(9, 10, 10);
+}
+#Insta:hover{
+    color: rgb(236, 64, 34);
+}
+/* social */
+
+  /* Change the navbar layout for small screens */
+
+@media screen and (max-width : 900px){
+    .menu{
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+    .list{
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;    
+    }
+    .navbar label{
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    #toggler:checked ~ .menu{
+        display: block;
+        max-height: 100%;
+    }
+      .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "item1"
+      "item2"
+      "item3";
+  }
+  
+  .item1,
+  .item2,
+  .item3 {
+    padding: 10px;
+  }
+
+    .txt img{
+        width: 90%;
+        height: auto;
+        margin-top: 10px;
+        aspect-ratio: 787/572;
+    }
+    .L1 li{
+        font-size: 5dvh;
+    }
+ /* Change the font size for small screens */
+}
+
